@@ -1,5 +1,7 @@
 # Freyja subtitle OCR trainer docker
 
+[![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/arition/freyja-sub-ocr)](https://hub.docker.com/r/arition/freyja-sub-ocr)
+
 A pre-built training environment for Freyja subtitle OCR trainer.
 
 ## Introduction
