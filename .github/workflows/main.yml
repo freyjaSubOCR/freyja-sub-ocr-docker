@@ -24,6 +24,7 @@ jobs:
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
             TAGS="$TAGS,arition/freyja-sub-ocr:${VERSION}"
+          fi
           echo ::set-output name=tags::${TAGS}
 
       - name: Set up QEMU
