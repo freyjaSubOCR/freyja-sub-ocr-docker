@@ -46,7 +46,7 @@ RUN pip3 --no-cache-dir install --upgrade pip
 
 # tensorboard==2.2 has a breaking change that prevents jupyter_tensorboard==0.2.0 to function correctly
 # See more on: https://github.com/lspvic/jupyter_tensorboard/pull/63
-RUN pip3 --no-cache-dir install VapourSynth numpy tensorboard==2.1 jupyter jupyterlab torch torchvision jupyter-tensorboard pytorch-ignite ipywidgets Pillow Vizer matplotlib ipympl numba && \
+RUN pip3 --no-cache-dir install VapourSynth numpy tensorboard==2.1 jupyter jupyterlab torch torchvision efficientnet_pytorch jupyter-tensorboard pytorch-ignite ipywidgets Pillow Vizer matplotlib ipympl numba && \
     jupyter nbextension enable --py widgetsnbextension && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
     jupyter labextension install jupyter-matplotlib && \
