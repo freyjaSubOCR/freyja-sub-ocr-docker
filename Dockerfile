@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.2-cudnn7-runtime-centos8
+FROM nvidia/cuda:11.0-cudnn8-runtime-centos8
 
 RUN dnf -y install 'dnf-command(config-manager)' && \
     dnf -y config-manager --enable PowerTools && \
@@ -44,9 +44,11 @@ RUN dnf -y install nodejs && \
 
 RUN pip3 --no-cache-dir install --upgrade pip
 
+RUN pip3 --no-cache-dir install torch==1.7.0+cu110 torchvision==0.8.1+cu110 torchaudio===0.7.0 -f https://download.pytorch.org/whl/torch_stable.html
+
 # tensorboard==2.2 has a breaking change that prevents jupyter_tensorboard==0.2.0 to function correctly
 # See more on: https://github.com/lspvic/jupyter_tensorboard/pull/63
-RUN pip3 --no-cache-dir install VapourSynth numpy tensorboard==2.1 jupyter jupyterlab torch torchvision efficientnet_pytorch jupyter-tensorboard pytorch-ignite ipywidgets Pillow Vizer matplotlib ipympl numba && \
+RUN pip3 --no-cache-dir install VapourSynth numpy tensorboard==2.1 jupyter jupyterlab efficientnet_pytorch jupyter-tensorboard pytorch-ignite ipywidgets Pillow Vizer matplotlib ipympl numba && \
     jupyter nbextension enable --py widgetsnbextension && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
     jupyter labextension install jupyter-matplotlib && \
